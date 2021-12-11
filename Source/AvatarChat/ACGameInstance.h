@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ACChatOverlay.h"
 #include "Engine/GameInstance.h"
 #include "ACGameInstance.generated.h"
 
@@ -22,6 +23,12 @@ public:
 	UFUNCTION(Exec, BlueprintCallable, Category="Chat System")
 	void LoadChatOverlay();
 
+	UFUNCTION(Exec, BlueprintCallable, Category="Chat System")
+	void SendMessage(const FString& Message);
+
 private:
 	TSubclassOf<UUserWidget> ChatOverlayClass;
+
+	UPROPERTY()
+	UACChatOverlay* ChatOverlay;
 };

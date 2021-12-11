@@ -21,10 +21,15 @@ void UACGameInstance::Init()
 void UACGameInstance::LoadChatOverlay()
 {
 	MYCHECKNULL(ChatOverlayClass);
-	UACChatOverlay* ChatOverlay(CreateWidget<UACChatOverlay>(this, ChatOverlayClass));
+	ChatOverlay = (CreateWidget<UACChatOverlay>(this, ChatOverlayClass));
 	MYCHECKNULL(ChatOverlay);
 	const auto LocalController = GetFirstLocalPlayerController();
 	MYCHECKNULL(LocalController);
 
 	ChatOverlay->AddToViewport();
+}
+
+void UACGameInstance::SendMessage(const FString& Message)
+{
+	ChatOverlay->LogMessage(Message);
 }
