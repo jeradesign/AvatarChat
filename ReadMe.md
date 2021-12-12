@@ -2,7 +2,6 @@ AvatarChat Stories
 =
 Todo:
 -
-* Enable host/join via command box
 * Replicate text in text area to all players
 * Give players fake names based on player number: Alice Bob Carol Dan Eve Frank Grace
 * Sent messages start with player name
@@ -21,6 +20,7 @@ Done:
 -
 * ~~Display text area in HUD~~
 * ~~Send message to text area via command box~~
+* ~~Enable host/join via command box~~
 
 On Hold:
 -

@@ -33,3 +33,28 @@ void UACGameInstance::SendMessage(const FString& Message)
 {
 	ChatOverlay->LogMessage(Message);
 }
+
+void UACGameInstance::BeginHosting()
+{
+	const auto Engine(GetEngine());
+	MYCHECKNULL(Engine);
+
+	Engine->AddOnScreenDebugMessage(0, 10.0f, FColor::Green, "Hosting");
+
+	UWorld* World = GetWorld();
+	MYCHECKNULL(World);
+	World->ServerTravel("/Game/ThirdPersonCPP/Maps/ThirdPersonExampleMap?listen");
+}
+
+void UACGameInstance::JoinServer(const FString& IpAddr)
+{
+	const auto Engine(GetEngine());
+	MYCHECKNULL(Engine);
+	const FString Message = "Joining: " + IpAddr;
+
+	Engine->AddOnScreenDebugMessage(0, 10.0f, FColor::Green, Message);
+
+	APlayerController* PlayerController = GetFirstLocalPlayerController();
+	MYCHECKNULL(PlayerController);
+	PlayerController->ClientTravel(*IpAddr, TRAVEL_Absolute);
+}

@@ -26,6 +26,12 @@ public:
 	UFUNCTION(Exec, BlueprintCallable, Category="Chat System")
 	void SendMessage(const FString& Message);
 
+	UFUNCTION(Exec)
+	virtual void BeginHosting();
+
+	UFUNCTION(Exec)
+	virtual void JoinServer(const FString& IpAddr);
+
 private:
 	TSubclassOf<UUserWidget> ChatOverlayClass;
 
