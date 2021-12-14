@@ -10,5 +10,6 @@ public class AvatarChatTarget : TargetRules
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 		ExtraModuleNames.Add("AvatarChat");
+		ExtraModuleNames.Add("Networking");
 	}
 }

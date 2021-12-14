@@ -4,6 +4,7 @@
 #include "ACGameInstance.h"
 
 #include "ACChatOverlay.h"
+#include "ACGameState.h"
 #include "MyCheckNull.h"
 
 UACGameInstance::UACGameInstance(const FObjectInitializer& ObjectInitializer)
@@ -31,7 +32,11 @@ void UACGameInstance::LoadChatOverlay()
 
 void UACGameInstance::SendMessage(const FString& Message)
 {
-	ChatOverlay->LogMessage(Message);
+	UE_LOG(LogTemp, Warning, TEXT("UACGameInstance::SendMessage: %s"), *Message);
+
+	const UWorld* World(GetWorld());
+	AACGameState* GameState(static_cast<AACGameState*>(World->GetGameState()));
+	GameState->AddMessage(Message);
 }
 
 void UACGameInstance::BeginHosting()
@@ -57,4 +62,11 @@ void UACGameInstance::JoinServer(const FString& IpAddr)
 	APlayerController* PlayerController = GetFirstLocalPlayerController();
 	MYCHECKNULL(PlayerController);
 	PlayerController->ClientTravel(*IpAddr, TRAVEL_Absolute);
+}
+
+void UACGameInstance::UpdateTranscript(const FString& NewTransciptString)
+{
+	UE_LOG(LogTemp, Warning, TEXT("UACGameInstance::UpdateTranscript: %s"), *NewTransciptString);
+	MYCHECKNULL(ChatOverlay);
+	ChatOverlay->UpdateTranscript(NewTransciptString);
 }

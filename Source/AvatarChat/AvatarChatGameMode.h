@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/GameMode.h"
 #include "GameFramework/GameModeBase.h"
 #include "AvatarChatGameMode.generated.h"
 
@@ -13,6 +14,8 @@ class AAvatarChatGameMode : public AGameModeBase
 
 public:
 	AAvatarChatGameMode();
+
+	virtual void InitGameState() override;
 };
 
 

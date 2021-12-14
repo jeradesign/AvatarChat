@@ -32,6 +32,8 @@ public:
 	UFUNCTION(Exec)
 	virtual void JoinServer(const FString& IpAddr);
 
+	void UpdateTranscript(const FString& NewTransciptString);
+
 private:
 	TSubclassOf<UUserWidget> ChatOverlayClass;
 

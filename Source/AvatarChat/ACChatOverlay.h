@@ -17,6 +17,7 @@ class AVATARCHAT_API UACChatOverlay : public UUserWidget
 
 public:
 	void LogMessage(const FString& Message) const;
+	void UpdateTranscript(const FString& Message) const;
 
 private:
 	UPROPERTY(meta = (BindWidget))

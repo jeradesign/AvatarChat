@@ -13,6 +13,13 @@ void UACChatOverlay::LogMessage(const FString& Message) const
 	const FText Text = Transcript->GetText();
 	const FString OldString = Text.ToString();
 	const FString NewString = OldString + FString("\n") + Message;
-	const FText NewText(FText::FromString(NewString));
+	UpdateTranscript(NewString);
+}
+
+void UACChatOverlay::UpdateTranscript(const FString& NewTranscriptString) const
+{
+	UE_LOG(LogTemp, Warning, TEXT("UACChatOverlay::UpdateTranscript: %s"), *NewTranscriptString);
+	const FText NewText(FText::FromString(NewTranscriptString));
+	MYCHECKNULL(Transcript);
 	Transcript->SetText(NewText);
 }
