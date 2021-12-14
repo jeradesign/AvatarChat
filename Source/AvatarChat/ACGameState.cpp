@@ -20,7 +20,15 @@ void AACGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 	DOREPLIFETIME(AACGameState, Transcript);
 }
 
-void AACGameState::AddMessage_Implementation(const FString& Message)
+void AACGameState::OnRep_Transcript()
+{
+	UE_LOG(LogTemp, Warning, TEXT("AACGameState::OnRep_Transcript: %s"), *Transcript);
+	UACGameInstance* GameInstance(static_cast<UACGameInstance*>(GetGameInstance()));
+	MYCHECKNULL(GameInstance);
+	GameInstance->UpdateTranscript(Transcript);
+}
+
+void AACGameState::AddMessage(const FString& Message)
 {
 	UE_LOG(LogTemp, Warning, TEXT("AACGameState::AddMessage: %s"), *Message);
 	if (Transcript.IsEmpty())
@@ -31,17 +39,4 @@ void AACGameState::AddMessage_Implementation(const FString& Message)
 	{
 		Transcript.Append(Message);
 	}
-}
-
-bool AACGameState::AddMessage_Validate(const FString& Message)
-{
-	return true;
-}
-
-void AACGameState::UpdateTranscript(FString MyTranscript)
-{
-	UE_LOG(LogTemp, Warning, TEXT("AACGameState::UpdateTranscript: %s"), *MyTranscript);
-	UACGameInstance* GameInstance(static_cast<UACGameInstance*>(GetGameInstance()));
-	MYCHECKNULL(GameInstance);
-	GameInstance->UpdateTranscript(MyTranscript);
 }

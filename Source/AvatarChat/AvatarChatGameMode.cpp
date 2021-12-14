@@ -6,6 +6,7 @@
 #include "GameFramework/GameState.h"
 #include "UObject/ConstructorHelpers.h"
 #include "ACGameState.h"
+#include "ACPlayerController.h"
 
 AAvatarChatGameMode::AAvatarChatGameMode()
 {
@@ -16,6 +17,7 @@ AAvatarChatGameMode::AAvatarChatGameMode()
 	DefaultPawnClass = PlayerPawnBPClass.Class;
 
 	GameStateClass = AACGameState::StaticClass();
+	PlayerControllerClass = AACPlayerController::StaticClass();
 }
 
 void AAvatarChatGameMode::InitGameState()

@@ -19,13 +19,12 @@ class AVATARCHAT_API AACGameState : public AGameStateBase
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-	UPROPERTY(ReplicatedUsing=UpdateTranscript)
+	UPROPERTY(ReplicatedUsing=OnRep_Transcript)
 	FString Transcript;
 
 	UFUNCTION()
-	void UpdateTranscript(FString MyTranscript);
+	void OnRep_Transcript();
 
 public:
-	UFUNCTION(Server, Reliable, WithValidation)
 	void AddMessage(const FString& Message);
 };
