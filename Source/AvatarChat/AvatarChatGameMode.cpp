@@ -7,6 +7,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "ACGameState.h"
 #include "ACPlayerController.h"
+#include "GameFramework/PlayerState.h"
 
 AAvatarChatGameMode::AAvatarChatGameMode()
 {
@@ -24,4 +25,13 @@ void AAvatarChatGameMode::InitGameState()
 {
 	Super::InitGameState();
 	UE_LOG(LogTemp, Warning, TEXT("AAvatarChatGameMode::InitGameState"));
+}
+
+void AAvatarChatGameMode::ChangeName(AController* Controller, const FString& NewName, bool bNameChange)
+{
+	UE_LOG(LogTemp, Warning, TEXT("AAvatarChatGameMode::ChangeName: %s, bNameChange = %d"),
+		*NewName, bNameChange);
+	Super::ChangeName(Controller, NewName, bNameChange);
+	APlayerState* PlayerState(Controller->GetPlayerState<APlayerState>());
+	UE_LOG(LogTemp, Warning, TEXT("After Super::ChangeName, Name = %s"), *PlayerState->GetName());
 }

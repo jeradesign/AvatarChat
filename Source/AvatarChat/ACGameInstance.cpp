@@ -7,6 +7,7 @@
 #include "ACGameState.h"
 #include "ACPlayerController.h"
 #include "MyCheckNull.h"
+#include "GameFramework/PlayerState.h"
 
 UACGameInstance::UACGameInstance(const FObjectInitializer& ObjectInitializer)
 {

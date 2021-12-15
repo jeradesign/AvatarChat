@@ -12,7 +12,7 @@ void AACPlayerController::SendMessage_Implementation(const FString& Message)
 	UWorld* World(GetWorld());
 	MYCHECKNULL(World);
 	AACGameState* GameState(World->GetGameState<AACGameState>());
-	GameState->AddMessage(Message);
+	GameState->AddMessage(GetName() + ": " + Message);
 }
 
 bool AACPlayerController::SendMessage_Validate(const FString& Message)

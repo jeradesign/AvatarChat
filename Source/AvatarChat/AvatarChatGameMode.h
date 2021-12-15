@@ -16,6 +16,8 @@ public:
 	AAvatarChatGameMode();
 
 	virtual void InitGameState() override;
+
+	virtual void ChangeName(AController* Controller, const FString& NewName, bool bNameChange) override;
 };
 
 
