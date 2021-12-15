@@ -1,8 +1,8 @@
 AvatarChat Stories
 =
+
 Todo:
 -
-* Replicate text in text area to all players
 * Give players fake names based on player number: Alice Bob Carol Dan Eve Frank Grace
 * Sent messages start with player name
 * Float names over players' heads
@@ -18,9 +18,10 @@ Todo:
 
 Done:
 -
-* ~~Display text area in HUD~~
-* ~~Send message to text area via command box~~
 * ~~Enable host/join via command box~~
+* ~~Send message to text area via command box~~
+* ~~Display text area in HUD~~
+* ~~Replicate text in text area to all players~~
 
 On Hold:
 -

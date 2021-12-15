@@ -10,6 +10,9 @@
 AACGameState::AACGameState()
 {
 	UE_LOG(LogTemp, Warning, TEXT("AACGameState::AACGameState"));
+	UWorld* World = GetWorld();
+	MYCHECKNULL(World);
+	UE_LOG(LogTemp, Warning, TEXT("IsServer: %d, IsClient: %d"), World->IsServer(), World->IsClient());
 }
 
 void AACGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -37,6 +40,13 @@ void AACGameState::AddMessage(const FString& Message)
 	}
 	else
 	{
-		Transcript.Append(Message);
+		Transcript.Append("\n" + Message);
+	}
+	// Hack to provide notification when running as client on listen server
+	UWorld* World = GetWorld();
+	MYCHECKNULL(World);
+	if (World->IsServer() && World->IsClient())
+	{
+		OnRep_Transcript();
 	}
 }
