@@ -1,3 +1,7 @@
+NOTE: The below license applies to all C++ code and Blueprints in this project.
+The assets (characters, animations, materials, etc.) in this project are property
+of Epic, and therefore covered by the Unreal License. https://www.unrealengine.com/eula
+
 Copyright (c) Jera Design LLC
 All rights reserved.
 
