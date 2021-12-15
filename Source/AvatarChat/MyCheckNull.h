@@ -2,7 +2,7 @@
 
 #define MYCHECKNULL2(__pointer_to_check__, statement)\
 do { if (__pointer_to_check__ == nullptr) { \
-	UE_LOG(LogTemp, Error, TEXT("null pointer: " #__pointer_to_check__));\
+	UE_LOG(LogTemp, Warning, TEXT("null pointer: " #__pointer_to_check__));\
 	statement;\
 	} } while (false)
 
