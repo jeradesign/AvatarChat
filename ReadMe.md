@@ -3,7 +3,6 @@ AvatarChat Stories
 
 Todo:
 -
-* **DEMO VIDEO**
 * Add send message text box to HUD
 * Set player name via command box
 * Host/Join Menu (swipe from PuzzlePlatforms)
@@ -20,6 +19,7 @@ Done:
 * ~~Replicate text in text area to all players~~
 * ~~Sent messages start with player name~~
 * ~~Build for iOS and see what breaks~~
+* ~~**DEMO VIDEO**~~
 
 On Hold:
 -
