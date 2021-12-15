@@ -18,9 +18,9 @@ Todo:
 
 Done:
 -
+* ~~Display text area in HUD~~
 * ~~Enable host/join via command box~~
 * ~~Send message to text area via command box~~
-* ~~Display text area in HUD~~
 * ~~Replicate text in text area to all players~~
 
 On Hold:
